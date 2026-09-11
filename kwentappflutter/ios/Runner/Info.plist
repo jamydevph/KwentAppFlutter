@@ -68,5 +68,9 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Kwentapp needs access to your photos so you can add images to your posts, comments, and profile photo.</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 </dict>
 </plist>

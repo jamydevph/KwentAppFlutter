@@ -29,4 +29,13 @@ class AuthService {
   }
 
   Future<void> signOut() => _client.auth.signOut();
+
+  Future<void> deleteAccount() async {
+    await _client.functions.invoke('delete-account');
+    // The session is already invalid once the account is gone;
+    // clearing it locally is best-effort and must not surface as an error.
+    try {
+      await _client.auth.signOut();
+    } catch (_) {}
+  }
 }

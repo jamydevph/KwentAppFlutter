@@ -129,4 +129,10 @@ class Strings {
   static const okAction = 'OK';
   static const signedInMessage = 'Signed in. Welcome back!';
   static const accountCreatedMessage = 'Account created. Welcome to Kwentapp!';
+
+  static const deleteAccount = 'Delete account';
+  static const deleteAccountTitle = 'Delete account?';
+  static const deleteAccountMessage =
+      'This permanently deletes your account and everything you posted — '
+      'your kwento, comments, and images. This cannot be undone.';
 }

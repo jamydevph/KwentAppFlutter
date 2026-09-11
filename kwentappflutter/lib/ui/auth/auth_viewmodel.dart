@@ -84,6 +84,9 @@ class AuthViewModel extends ChangeNotifier {
   AuthFormState get formState => _formState;
   bool get isBusy => _formState is AuthFormSubmitting;
 
+  String? get formError =>
+      _formState is AuthFormFailed ? (_formState as AuthFormFailed).message : null;
+
   void resetForm() {
     if (_formState is AuthFormIdle) return;
     _set(const AuthFormIdle());
@@ -116,6 +119,21 @@ class AuthViewModel extends ChangeNotifier {
 
     try {
       await _repository.logout();
+      _user = null;
+      _set(const AuthFormIdle());
+      return true;
+    } catch (error) {
+      _set(AuthFormFailed(failureMessage(error)));
+      return false;
+    }
+  }
+
+  Future<bool> deleteAccount() async {
+    if (isBusy) return false;
+    _set(const AuthFormSubmitting());
+
+    try {
+      await _repository.deleteAccount();
       _user = null;
       _set(const AuthFormIdle());
       return true;

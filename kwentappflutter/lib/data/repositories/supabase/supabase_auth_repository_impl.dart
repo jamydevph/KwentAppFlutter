@@ -60,6 +60,9 @@ class SupabaseAuthRepositoryImpl implements AuthRepository {
   @override
   Future<void> logout() => guard(() => _service.signOut());
 
+  @override
+  Future<void> deleteAccount() => guard(() => _service.deleteAccount());
+
   AppUser? _toAppUser(supabase.User? user) {
     if (user == null) return null;
 

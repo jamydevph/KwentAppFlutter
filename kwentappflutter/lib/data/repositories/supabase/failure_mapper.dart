@@ -10,6 +10,7 @@ Failure mapError(Object error) {
   return switch (error) {
     Failure() => error,
     AuthException() => const ServerFailure(Strings.invalidCredentials),
+    FunctionException() => const ServerFailure(Strings.genericError),
     StorageException() => const StorageFailure(Strings.storageError),
     PostgrestException(:final code) when _isRlsDenial(code) =>
       const ServerFailure(Strings.notAllowed),

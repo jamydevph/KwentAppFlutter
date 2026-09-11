@@ -216,6 +216,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               const SizedBox(height: AppSpacing.lg),
               const _LogOutButton(),
+              const _DeleteAccountButton(),
             ],
           ),
         ),
@@ -281,6 +282,39 @@ class _LogOutButton extends StatelessWidget {
           ? const CommonLoader(size: 16)
           : const Text(Strings.logOut),
     );
+  }
+}
+
+class _DeleteAccountButton extends StatelessWidget {
+  const _DeleteAccountButton();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final auth = context.watch<AuthViewModel>();
+
+    return TextButton(
+      onPressed: auth.isBusy ? null : () => _confirmAndDelete(context),
+      style: TextButton.styleFrom(foregroundColor: theme.colorScheme.error),
+      child: const Text(Strings.deleteAccount),
+    );
+  }
+
+  Future<void> _confirmAndDelete(BuildContext context) async {
+    final auth = context.read<AuthViewModel>();
+
+    final confirmed = await CommonConfirmDialog.show(
+      context,
+      title: Strings.deleteAccountTitle,
+      message: Strings.deleteAccountMessage,
+      confirmLabel: Strings.deleteAccount,
+    );
+    if (!confirmed) return;
+
+    final ok = await auth.deleteAccount();
+    if (!ok && context.mounted) {
+      CommonSnackbar.showError(context, auth.formError ?? Strings.genericError);
+    }
   }
 }
 
