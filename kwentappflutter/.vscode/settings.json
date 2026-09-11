@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "apikey",
     "cupertino",
     "dela",
     "dnvin",
@@ -20,5 +21,7 @@
     "walang",
     "webp",
     "zpvm"
-  ]
+  ],
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false
 }
