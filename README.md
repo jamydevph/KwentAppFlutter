@@ -9,6 +9,28 @@ Flutter (Web + Android) · Dart · **Provider** · **go_router** · **Supabase**
 
 > Mobile-first at 390×844, shipped as Flutter Web and rendered in a centred column on wide screens. Browse the feed and open any post without an account; writing, commenting, and the profile require sign-in.
 
+## Screenshots
+
+Captured on an Android emulator with sample content, in both light and dark.
+
+### The app, in both themes
+
+| | Light | Dark |
+|---|---|---|
+| **Feed** — paginated post cards: author, multi-image preview with a **+N** overflow badge, comment count | <img src="docs/screenshots/light-feed.png" width="210"> | <img src="docs/screenshots/dark-feed.png" width="210"> |
+| **Post detail** — swipeable image gallery with page dots, and the comment thread with Edit / Delete on your own comment | <img src="docs/screenshots/light-detail.png" width="210"> | <img src="docs/screenshots/dark-detail.png" width="210"> |
+| **Post editor** — one page for create and edit: title, story, up to six images | <img src="docs/screenshots/light-editor.png" width="210"> | <img src="docs/screenshots/dark-editor.png" width="210"> |
+| **Profile** — avatar change / remove, name, read-only email, and the flow's only exit: log out | <img src="docs/screenshots/light-profile.png" width="210"> | <img src="docs/screenshots/dark-profile.png" width="210"> |
+
+Light and dark are one `_build()` with swapped tokens; the app follows the system setting.
+
+### Public browsing and auth
+
+| Public feed — signed out | Login | Register |
+|---|---|---|
+| <img src="docs/screenshots/light-feed-public.png" width="210"> | <img src="docs/screenshots/light-login.png" width="210"> | <img src="docs/screenshots/light-register.png" width="210"> |
+| Anyone can read the feed and open a post; the bar shows **Sign In** instead of an avatar, and writing redirects here | Errors surface as an inline banner, not a dialog | **No confirm-password field** — per the assessment spec |
+
 ---
 
 ## What it does
