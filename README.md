@@ -26,10 +26,11 @@ Light and dark are one `_build()` with swapped tokens; the app follows the syste
 
 ### Public browsing and auth
 
-| Public feed — signed out | Login | Register |
+| | Light | Dark |
 |---|---|---|
-| <img src="docs/screenshots/light-feed-public.png" width="210"> | <img src="docs/screenshots/light-login.png" width="210"> | <img src="docs/screenshots/light-register.png" width="210"> |
-| Anyone can read the feed and open a post; the bar shows **Sign In** instead of an avatar, and writing redirects here | Errors surface as an inline banner, not a dialog | **No confirm-password field** — per the assessment spec |
+| **Public feed — signed out** — anyone can read the feed and open a post; the bar shows **Sign In** instead of an avatar, and writing redirects here | <img src="docs/screenshots/light-feed-public.png" width="210"> | <img src="docs/screenshots/dark-feed-public.png" width="210"> |
+| **Login** — errors surface as an inline banner, not a dialog | <img src="docs/screenshots/light-login.png" width="210"> | <img src="docs/screenshots/dark-login.png" width="210"> |
+| **Register** — **no confirm-password field**, per the assessment spec | <img src="docs/screenshots/light-register.png" width="210"> | <img src="docs/screenshots/dark-register.png" width="210"> |
 
 ---
 
